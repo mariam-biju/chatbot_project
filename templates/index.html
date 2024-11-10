@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Ask the Chatbot</h1>
+    <form method="POST">
+        <label for="user_query">Enter your query:</label>
+        <input type="text" name="user_query" id="user_query" placeholder="Type your query here" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if response %}
+        <p><strong>Response: </strong>{{ response }}</p>
+    {% else %}
+        <p>No response yet.</p>
+    {% endif %}
+</body>
+</html>

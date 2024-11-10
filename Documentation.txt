@@ -1,0 +1,51 @@
+1. Introduction
+
+The chatbot is designed to answer financial queries based on data from a CSV file (REPORT.csv). It is a simple tool that can answer specific questions related to financial data such as total revenue, net income, liabilities, and cash flow, based on available data.
+
+2. Functionality
+
+The chatbot supports the following features:
+Data Loading:
+The chatbot loads data from a CSV file called REPORT.csv and processes it to remove any extra spaces in the column names.
+Predefined Queries:
+Total Revenue: The chatbot can provide the total revenue from the data.
+Net Income Change: The chatbot can calculate the change in net income between two years (e.g., 2023 and 2024).
+Total Liabilities: The chatbot can return the sum of total liabilities.
+Cash Flow from Operating Activities: The chatbot can return the sum of cash flow from operating activities.
+Total Assets: The chatbot can return the total assets.
+Dynamic Queries:
+The chatbot can handle queries about specific companies and their financial data for particular years. Example queries include:
+What is the total revenue for Microsoft in 2024?
+What is the net income for Google in 2023?
+What are the liabilities for Apple in 2023?
+Error Handling:
+If a query does not match any of the predefined queries, the chatbot will respond with a message stating that it can only answer predefined questions.
+If there is an issue with accessing the CSV file, an error message will be displayed indicating the problem.
+
+3. Limitations
+
+The chatbot has the following limitations:
+Data Availability: The chatbot relies on data present in the REPORT.csv file. If the necessary data is missing or the file is not available, the chatbot cannot provide any answers.
+
+Predefined Queries: The chatbot can only respond to predefined queries that match the format in the code. It cannot handle queries outside of the current scope.
+Company and Year Handling: The chatbot assumes that the requested year and company data exist in the REPORT.csv file. If no data is available for the requested company or year, it will return an error message or may not provide meaningful responses.
+Limited to Financial Data: The chatbot only handles financial data and is not capable of answering non-financial queries.
+
+4. How to Use
+
+Install Dependencies: Ensure that you have Flask and pandas installed. You can install them using pip:
+pip install Flask pandas
+Place REPORT.csv: Ensure that the REPORT.csv file is in the same directory as the chatbot code (or adjust the file path in the code accordingly).
+Run the Flask App: Run the chatbot using:
+python app.py
+Interact with the Chatbot: Open your browser and go to http://127.0.0.1:5000/ to interact with the chatbot.
+
+5. Future Improvements
+
+Natural Language Processing: The chatbot could be improved by incorporating natural language processing to better understand a wider variety of queries.
+Error Handling: Add more robust error handling for various edge cases, such as missing values in the CSV file.
+Data Visualization: Incorporate charts and graphs to visualize financial data and trends.
+
+6. Conclusion
+
+This chatbot serves as a simple tool to answer basic financial queries from a CSV file. While limited in scope, it can be expanded to handle more complex queries and integrate with other data sources.
