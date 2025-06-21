@@ -1,57 +1,103 @@
-# chatbot_project
-# Financial Chatbot
-A simple chatbot built with Flask that answers financial queries based on data from a CSV file (REPORT.csv). The chatbot can provide key financial insights such as total revenue, net income change, total liabilities, cash flow from operating activities, and more.
+# 💼 Financial Report Chatbot with Flask
 
-Features
-Predefined Queries: The chatbot can answer specific financial questions such as:
+A simple yet powerful **Flask-based chatbot** that interacts with financial data from companies like **MICROSOFT**, **APPLE**, and **GOOGLE**. It responds to both predefined and dynamic queries using regex-based natural language parsing.
 
-Total revenue, Net income change over the last year, Total liabilities, Cash flow from operating activities, Total assets
+---
 
-Company-Specific Queries: Users can ask about specific companies and financial data for particular years.
+## 📊 Key Features
 
-Data Handling: The chatbot reads from a CSV file (REPORT.csv) and provides answers based on that data.
+- ✅ Answers financial queries such as:
+  - Total revenue
+  - Net income change
+  - Cash flow from operating activities
+  - Total liabilities and assets
+- ✅ Supports **year-specific** and **company-specific** queries (e.g., "net income for Apple in 2024")
+- ✅ Uses **regex extraction** for identifying year and company from user queries
+- ✅ Powered by a backend **CSV dataset (`REPORT.csv`)**
+- ✅ Minimal front-end using `index.html`
 
-Prerequisites
+---
 
-Python 3.x
+## 🧠 How It Works
 
-Flask
+1. Load financial data from `REPORT.csv`  
+2. Match the user’s query to a known pattern  
+3. Extract keywords like **company** and **year** using regex  
+4. Respond using filtered data from the DataFrame  
 
-pandas
+Example:
+```
+Q: What is the total revenue for Microsoft in 2023?  
+→ A: The total revenue for MICROSOFT in 2023 is 420000000.
+```
 
-Installation
+---
 
-pip install Flask pandas
+## 🛠 Tech Stack
 
-Add the REPORT.csv file: Make sure the REPORT.csv file containing the financial data is in the same directory as the application file (app.py).
+- 🐍 Python 3.x  
+- 🌐 Flask  
+- 📊 Pandas  
+- 🧠 Regex (`re`)  
 
-Usage
+---
 
-Run the Flask app:
+## 📁 Project Structure
 
+```
+financial-chatbot/
+├── app.py                # Main Flask backend
+├── REPORT.csv            # Financial dataset (ensure correct column names)
+├── templates/
+│   └── index.html        # Simple UI to enter queries
+```
+
+---
+
+## 📦 Dependencies
+
+Install with:
+
+```
+pip install flask pandas
+```
+
+---
+
+## ▶️ How to Run
+
+1. Place your `REPORT.csv` file in the same directory  
+2. Launch the app:
+
+```
 python app.py
+```
 
-Interact with the chatbot:
+3. Open in browser:
 
-Open your web browser and go to http://127.0.0.1:5000/.
+```
+http://localhost:5000
+```
 
-Type your query into the input box, and the chatbot will respond with the answer based on the available data in REPORT.csv.
+---
 
-Example Queries
+## 🗃️ Example Queries
 
-"What is the total revenue?"
+- `What is the total revenue?`  
+- `How has net income changed over the last year?`  
+- `What is the total liabilities?`  
+- `Cash flow from operating activities for Google in 2024`  
+- `Total assets for Apple in 2023`
 
-"How has net income changed over the last year?"
+---
 
-"What is the cash flow from operating activities?"
+## ⚠️ Notes
 
-"What are the total assets?"
+- CSV file must contain columns:  
+  `FISCAL YEAR`, `COMPANY`, `NET INCOME`, `TOTAL REVENUE`, `TOTAL ASSETS`, `TOTAL LIABILITIES`, `CASH FLOW FROM OPERATING ACTIVITIES`
+- Supported companies: `MICROSOFT`, `APPLE`, `GOOGLE`  
+  *(add more in `extract_year_and_company()` as needed)*  
+- Supported years: `2023`, `2024`
 
-"What is the net income for Microsoft in 2024?"
-
-Limitations
-
-The chatbot can only respond to queries defined in the code.
-It relies on the REPORT.csv file for data. If the required data is missing or incorrectly formatted, the chatbot may not provide meaningful answers.
-It is limited to financial data and does not handle other types of queries.
+---
 
